@@ -20,6 +20,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/admin', function(){
-    return view('admin');
-})->middleware('auth');
+Route::view('/admin/dashboard','admin.dashboard.index')->middleware('auth')->name('dashboard');
+
+
+Route::resource('/admin/customers', 'CustomersController')->middleware('auth');
+
+Route::resource('/admin/suppliers', 'SuppliersController')->middleware('auth');
+
+
+Route::resource('/admin/products', 'ProductsController')->middleware('auth');
+
+Route::resource('/admin/purchase', 'PurchaseController')->middleware('auth');
+
+Route::resource('/admin/sales', 'SalesController')->middleware('auth');
