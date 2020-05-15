@@ -20,13 +20,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::view('/admin/dashboard','admin.dashboard.index')->middleware('auth')->name('dashboard');
 
+//Admin Panel Routes
+
+Route::view('/admin/dashboard','admin.dashboard.index')->middleware('auth')->name('dashboard');
 
 Route::resource('/admin/customers', 'CustomersController')->middleware('auth');
 
 Route::resource('/admin/suppliers', 'SuppliersController')->middleware('auth');
-
 
 Route::resource('/admin/products', 'ProductsController')->middleware('auth');
 
